@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateDriverDto } from './dto/create-driver.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Driver, DriverDocument } from './schemas/rider.schema';
+import { Driver, DriverDocument } from './schemas/driver.schema';
 import { Model } from 'mongoose';
 import { requestResponse } from 'src/shared/models/general.models';
 

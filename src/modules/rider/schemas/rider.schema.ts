@@ -18,7 +18,7 @@ export class Rider {
   ledal_id_type: string;
 
   @Prop({ required: false })
-  tokend_payment_methods: string[];
+  history_trips: string[];
 }
 
 export const RiderSchema = SchemaFactory.createForClass(Rider);
