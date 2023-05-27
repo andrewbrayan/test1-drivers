@@ -7,6 +7,7 @@ import { MapboxService } from "src/shared/services/mapbox/mapbox.service";
 import { requestResponse } from "src/shared/models/general.models";
 import { Driver, DriverDocument } from "../driver/schemas/driver.schema";
 import { Rider, RiderDocument } from "../rider/schemas/rider.schema";
+import { PaymentsService } from "src/shared/services/payments/payments.service";
 
 @Injectable()
 export class TripService {
@@ -14,10 +15,11 @@ export class TripService {
     @InjectModel(Trip.name) private tripModel: Model<TripDocument>,
     @InjectModel(Driver.name) private driverModel: Model<DriverDocument>,
     @InjectModel(Rider.name) private riderModel: Model<RiderDocument>,
-    private mapboxService: MapboxService
+    private mapboxService: MapboxService,
+    private paymentsService: PaymentsService
   ) {}
 
-  async createTrip(createTripDto: CreateTripDto): Promise<requestResponse> {
+  async startTrip(createTripDto: CreateTripDto): Promise<requestResponse> {
     if (
       !createTripDto.origin ||
       !createTripDto.destination ||
@@ -79,6 +81,31 @@ export class TripService {
       });
   }
 
+  async closeTrip(legal_id: string): Promise<requestResponse> {
+    const trip = await this.tripModel.findOne({ driver_legal_id: legal_id,  payment_reference: '' });
+    const rider = await this.riderModel.findOne({ legal_id: trip.rider_legal_id });
+    const amount = this.calculateAmount(trip.route_distance, trip.route_duration)
+    const paymentRefence = await this.paymentsService.createPayment(rider, amount);
+
+    return await this.tripModel.updateOne({ _id: trip._id }, { payment_reference: paymentRefence, payment_amount: Math.ceil(amount) }).then<requestResponse>((trip) => {
+      return {
+        statusCode: 200,
+        status: "Created",
+        message: "Viaje finalizado",
+        data: trip,
+      };
+    })
+    .catch<requestResponse>((error) => {
+      return {
+        statusCode: 400,
+        status: "Bad Request",
+        message: "Error al finalizar el viaje",
+        data: error,
+      };
+    });
+
+  }
+
   async calculateShortDrivers(origin: [number, number]) {
     const allDrivers = await this.driverModel.find();
     let minDistance = null;
@@ -99,5 +126,13 @@ export class TripService {
     }
 
     return selectDriver;
+  }
+
+  calculateAmount(distance: number, duration: number): number {
+    const kilometersCost = (distance/1000) * 1000;
+    const durationCost = (distance/60) * 200;
+    const baseCost = 3500
+
+    return kilometersCost + durationCost + baseCost
   }
 }

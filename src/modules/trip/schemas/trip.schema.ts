@@ -26,7 +26,10 @@ export class Trip {
   @Prop({ required: true })
   route_coordinates: number[][];
 
-  @Prop({ required: false })
+  @Prop({ required: false, default: 0 })
+  payment_amount: number;
+
+  @Prop({ required: false, default: '' })
   payment_reference: string;
 }
 

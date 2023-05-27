@@ -16,9 +16,6 @@ export class Rider {
 
   @Prop({ required: true })
   ledal_id_type: string;
-
-  @Prop({ required: false })
-  history_trips: string[];
 }
 
 export const RiderSchema = SchemaFactory.createForClass(Rider);

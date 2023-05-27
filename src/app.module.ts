@@ -4,7 +4,6 @@ import { AppService } from "./app.service";
 import { MongooseModule } from "@nestjs/mongoose";
 import { RiderModule } from "./modules/rider/rider.module";
 import { DriverModule } from './modules/driver/driver.module';
-import { PaymentModule } from './modules/payment/payment.module';
 import { TripModule } from './modules/trip/trip.module';
 import { ConfigModule } from "@nestjs/config";
 
@@ -17,7 +16,6 @@ import { ConfigModule } from "@nestjs/config";
     ),
     RiderModule,
     DriverModule,
-    PaymentModule,
     TripModule,
     ConfigModule.forRoot({
       isGlobal: true,

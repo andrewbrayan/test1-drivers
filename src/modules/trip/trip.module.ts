@@ -7,6 +7,7 @@ import { HttpModule } from "@nestjs/axios";
 import { MapboxService } from 'src/shared/services/mapbox/mapbox.service';
 import { Driver, DriverSchema } from '../driver/schemas/driver.schema';
 import { Rider, RiderSchema } from '../rider/schemas/rider.schema';
+import { PaymentsService } from 'src/shared/services/payments/payments.service';
 
 @Module({
   controllers: [TripController],
@@ -18,6 +19,6 @@ import { Rider, RiderSchema } from '../rider/schemas/rider.schema';
     ]),
     HttpModule
   ],
-  providers: [TripService, MapboxService]
+  providers: [TripService, MapboxService, PaymentsService]
 })
 export class TripModule {}
