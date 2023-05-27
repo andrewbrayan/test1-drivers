@@ -1,0 +1,140 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "testDrivers",
+    "dateExported": "2023-05-27T17:48:35.402Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7db69e93-4f5e-46ac-8a48-159bced896d5",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Create Rider",
+            "url": "http://localhost:3000/rider",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-27T16:19:06.997Z",
+            "modified": "2023-05-27T17:10:28.684Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"full_name\": \"Brayan Andres\",\n  \"customer_email\": \"Andres.Brayan.M@gmail.com\",\n  \"legal_id\": \"1031160418\",\n  \"ledal_id_type\": \"CC\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b4c77106-1cb0-4b2e-bf16-6e90e866b113",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Get All Riders",
+            "url": "http://localhost:3000/rider",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-27T17:07:18.665Z",
+            "modified": "2023-05-27T17:07:31.175Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "18198ac5-9458-4c8b-8fa2-0516b1eac24a",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Get Rider by Legal Id",
+            "url": "http://localhost:3000/rider/103116041",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-27T17:14:39.864Z",
+            "modified": "2023-05-27T17:16:27.570Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "274b5731-3227-4abf-950d-d746639c9d3a",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Get Token Payment",
+            "url": "https://sandbox.wompi.co/v1/tokens/cards",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-05-27T17:31:59.942Z",
+            "modified": "2023-05-27T17:34:31.345Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"number\": \"4242424242424242\",\r\n  \"cvc\": \"789\",\r\n  \"exp_month\": \"12\",\r\n  \"exp_year\": \"29\",\r\n  \"card_holder\": \"Brayan Martinez\"\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "pub_test_oZ9R968RJWq57U097dZrgNMXBcyQK8hT "
+            },
+            "tests": []
+        },
+        {
+            "_id": "ddbeb713-ee2f-4cb6-a16a-54577c663f5e",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Create Payment",
+            "url": "https://sandbox.wompi.co/v1/transactions",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-05-27T17:35:25.947Z",
+            "modified": "2023-05-27T17:46:07.673Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NiwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jb20vd2NtL2Nvbm5lY3QvYzkyYmJlYjMtMzQyMS00OWQwLWI4MWUtNGE4ZTRlNTUyYWY5L1QlQzMlQTlybWlub3MreStjb25kaWNpb25lc19Ob3ZpZW1icmUucGRmP01PRD1BSlBFUkVTIiwiZmlsZV9oYXNoIjoiYmY3MjJhY2QxMWM0YzM0MzE1YzA4NTViMjJiMjhiOTkiLCJqaXQiOiIxNjg1MjA4OTk1LTQ4MzEzIiwiZXhwIjoxNjg1MjEyNTk1fQ.KmN4BbcEnHIifqhTB5WExhFkm8sPjrF0aFZNkbfdAmU\",\r\n    \"amount_in_cents\": 1000000,\r\n    \"currency\": \"COP\",\r\n    \"customer_email\": \"andres.brayan.m@gmail.com\",\r\n    \"reference\": \"1031160418-20230427\",\r\n    \"customer_data\"   : {\r\n        \"legal_id\": \"1031160418\",\r\n        \"full_name\": \"Brayan Andres Martinez\",\r\n        \"ledal_id_type\": \"CC\"\r\n    },\r\n    \"payment_method\": {\r\n        \"type\": \"CARD\",\r\n        \"installments\": 1,\r\n        \"token\": \"tok_test_53167_1F43C334DA74D41b240eb9A9F68EbE2d\"     \r\n    }\r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "pub_test_oZ9R968RJWq57U097dZrgNMXBcyQK8hT"
+            },
+            "tests": []
+        },
+        {
+            "_id": "19cf1f10-a95a-41e0-8fb5-3dfa9c97e7ec",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Get Terms and Conditions",
+            "url": "https://sandbox.wompi.co/v1/merchants/pub_test_oZ9R968RJWq57U097dZrgNMXBcyQK8hT",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-05-27T17:35:55.275Z",
+            "modified": "2023-05-27T17:36:44.095Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1774628e-112a-4a1f-8862-8a96dfb5a996",
+            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "containerId": "",
+            "name": "Consult Transaction",
+            "url": "https://sandbox.wompi.co/v1/transactions?reference=1031160418-20230427",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-05-27T17:47:12.125Z",
+            "modified": "2023-05-27T17:48:03.117Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "reference",
+                    "value": "1031160418-20230427",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "prv_test_nqJyKKmRpkn8ca4a6Evlc2xMuISTtbKF"
+            },
+            "tests": []
+        }
+    ]
+}
