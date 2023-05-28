@@ -28,12 +28,12 @@ export class DriverService {
 
     return await newDriver
       .save()
-      .then<requestResponse>((rider) => {
+      .then<requestResponse>((driver) => {
         return {
           statusCode: 200,
           status: "Created",
           message: "Conductor creado",
-          data: rider,
+          data: driver,
         };
       })
       .catch<requestResponse>((error) => {

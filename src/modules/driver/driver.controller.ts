@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Param,
-  Body,
-  Res,
-} from "@nestjs/common";
+import { Controller, Get, Post, Param, Body, Res } from "@nestjs/common";
 import { DriverService } from './driver.service';
 import { CreateDriverDto } from "./dto/create-driver.dto";
 import { Response } from "express";
