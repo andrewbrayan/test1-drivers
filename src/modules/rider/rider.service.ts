@@ -15,12 +15,13 @@ export class RiderService {
 
     const newRider = new this.riderModel(riderParams);
     
-    const userResponse = await this.riderModel.find({ legal_id: riderParams.legal_id }).exec();    
-    if (userResponse.length) {
+    const rider = await this.riderModel.findOne({ legal_id: riderParams.legal_id })
+
+    if (rider && rider.legal_id == riderParams.legal_id) {
       return {
         statusCode: 409,
         status: "Conflict",
-        message: `El pasajero ${userResponse[0].legal_id} ya está en uso`,
+        message: `El pasajero ${rider.legal_id} ya está en uso`,
         data: null,
       };
     }

@@ -14,14 +14,13 @@ export class DriverService {
   async createNewDriver(driverParams: CreateDriverDto): Promise<requestResponse> {
     const newDriver = new this.driverModel(driverParams);
 
-    const userResponse = await this.driverModel
-      .find({ legal_id: driverParams.legal_id })
-      .exec();
-    if (userResponse.length) {
+    const driver = await this.driverModel.findOne({ legal_id: driverParams.legal_id })
+
+    if (driver && driver.legal_id == driverParams.legal_id) {
       return {
         statusCode: 409,
         status: "Conflict",
-        message: `El conductor ${userResponse[0].legal_id} ya está en uso`,
+        message: `El conductor ${driver.legal_id} ya está en uso`,
         data: null,
       };
     }
