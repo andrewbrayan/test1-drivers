@@ -6,7 +6,7 @@ import { ApiBody, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { requestResponse } from 'src/shared/models/general.models';
 
 @Controller('trip')
-@ApiTags('Trip')
+@ApiTags('Trips')
 export class TripController {
   constructor(private readonly tripService: TripService) {}
 
