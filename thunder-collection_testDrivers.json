@@ -1,67 +1,122 @@
 {
     "client": "Thunder Client",
     "collectionName": "testDrivers",
-    "dateExported": "2023-05-27T17:48:35.402Z",
+    "dateExported": "2023-05-29T00:52:02.240Z",
     "version": "1.1",
-    "folders": [],
+    "folders": [
+        {
+            "_id": "94935d8e-8a2b-4559-979f-46c01b5faaee",
+            "name": "drivers",
+            "containerId": "",
+            "created": "2023-05-28T07:01:01.854Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "7f51fd00-5e41-4c9d-a848-93c8c6fcfad9",
+            "name": "riders",
+            "containerId": "",
+            "created": "2023-05-28T07:01:14.439Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "d002c1a6-78bb-48d2-8599-6e989f64c4dc",
+            "name": "trips",
+            "containerId": "",
+            "created": "2023-05-28T07:01:36.534Z",
+            "sortNum": 30000
+        }
+    ],
     "requests": [
         {
-            "_id": "7db69e93-4f5e-46ac-8a48-159bced896d5",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
-            "containerId": "",
+            "_id": "ff3c99b0-e2cb-468a-a7ca-94b40cf03326",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "7f51fd00-5e41-4c9d-a848-93c8c6fcfad9",
             "name": "Create Rider",
             "url": "http://localhost:3000/rider",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-05-27T16:19:06.997Z",
-            "modified": "2023-05-27T17:10:28.684Z",
+            "created": "2023-05-27T20:21:53.382Z",
+            "modified": "2023-05-28T23:36:07.823Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"full_name\": \"Brayan Andres\",\n  \"customer_email\": \"Andres.Brayan.M@gmail.com\",\n  \"legal_id\": \"1031160418\",\n  \"ledal_id_type\": \"CC\"\n}",
+                "raw": "{\n  \"full_name\": \"Andrés Torres\",\n  \"customer_email\": \"andres.torres5@gmail.com\",\n  \"legal_id\": \"555555555\",\n  \"ledal_id_type\": \"CC\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "b4c77106-1cb0-4b2e-bf16-6e90e866b113",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
-            "containerId": "",
+            "_id": "34de000e-59d7-4b76-9b23-ebc7b0139522",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "d002c1a6-78bb-48d2-8599-6e989f64c4dc",
+            "name": "Create Trip",
+            "url": "http://localhost:3000/trip",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-27T21:13:39.787Z",
+            "modified": "2023-05-28T23:40:55.822Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"rider_legal_id\": \"111111111\",\n  \"destination\": [-74.642444, 4.204020],\n  \"origin\": [-74.071351, 4.616400]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "32a2be18-d06f-4626-89f5-20300973c518",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "d002c1a6-78bb-48d2-8599-6e989f64c4dc",
+            "name": "Close Trip",
+            "url": "http://localhost:3000/trip/371829402",
+            "method": "PATCH",
+            "sortNum": 20000,
+            "created": "2023-05-27T23:10:48.121Z",
+            "modified": "2023-05-29T00:08:22.187Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7c01654b-be18-4b18-9b0f-ce09abb2d9f5",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "7f51fd00-5e41-4c9d-a848-93c8c6fcfad9",
+            "name": "Get Rider by Legal Id",
+            "url": "http://localhost:3000/rider/371829402",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-27T20:21:53.384Z",
+            "modified": "2023-05-28T23:42:21.377Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3632d5a8-e6eb-4d99-963d-66f45a0c2ec8",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "7f51fd00-5e41-4c9d-a848-93c8c6fcfad9",
             "name": "Get All Riders",
             "url": "http://localhost:3000/rider",
             "method": "GET",
-            "sortNum": 20000,
-            "created": "2023-05-27T17:07:18.665Z",
-            "modified": "2023-05-27T17:07:31.175Z",
+            "sortNum": 40000,
+            "created": "2023-05-27T20:21:53.383Z",
+            "modified": "2023-05-28T07:02:01.494Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "18198ac5-9458-4c8b-8fa2-0516b1eac24a",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
-            "containerId": "",
-            "name": "Get Rider by Legal Id",
-            "url": "http://localhost:3000/rider/103116041",
-            "method": "GET",
-            "sortNum": 30000,
-            "created": "2023-05-27T17:14:39.864Z",
-            "modified": "2023-05-27T17:16:27.570Z",
-            "headers": [],
-            "params": [],
-            "tests": []
-        },
-        {
-            "_id": "274b5731-3227-4abf-950d-d746639c9d3a",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "_id": "622c340f-8b6c-489d-9406-97731cb5f3d0",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
             "containerId": "",
             "name": "Get Token Payment",
             "url": "https://sandbox.wompi.co/v1/tokens/cards",
             "method": "POST",
             "sortNum": 50000,
-            "created": "2023-05-27T17:31:59.942Z",
-            "modified": "2023-05-27T17:34:31.345Z",
+            "created": "2023-05-27T20:21:53.385Z",
+            "modified": "2023-05-27T20:21:53.385Z",
             "headers": [],
             "params": [],
             "body": {
@@ -76,52 +131,48 @@
             "tests": []
         },
         {
-            "_id": "ddbeb713-ee2f-4cb6-a16a-54577c663f5e",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "_id": "67791fad-16e2-4e37-943b-c36e732cc2a3",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
             "containerId": "",
             "name": "Create Payment",
             "url": "https://sandbox.wompi.co/v1/transactions",
             "method": "POST",
             "sortNum": 60000,
-            "created": "2023-05-27T17:35:25.947Z",
-            "modified": "2023-05-27T17:46:07.673Z",
+            "created": "2023-05-27T20:21:53.386Z",
+            "modified": "2023-05-27T23:18:53.052Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n    \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NiwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jb20vd2NtL2Nvbm5lY3QvYzkyYmJlYjMtMzQyMS00OWQwLWI4MWUtNGE4ZTRlNTUyYWY5L1QlQzMlQTlybWlub3MreStjb25kaWNpb25lc19Ob3ZpZW1icmUucGRmP01PRD1BSlBFUkVTIiwiZmlsZV9oYXNoIjoiYmY3MjJhY2QxMWM0YzM0MzE1YzA4NTViMjJiMjhiOTkiLCJqaXQiOiIxNjg1MjA4OTk1LTQ4MzEzIiwiZXhwIjoxNjg1MjEyNTk1fQ.KmN4BbcEnHIifqhTB5WExhFkm8sPjrF0aFZNkbfdAmU\",\r\n    \"amount_in_cents\": 1000000,\r\n    \"currency\": \"COP\",\r\n    \"customer_email\": \"andres.brayan.m@gmail.com\",\r\n    \"reference\": \"1031160418-20230427\",\r\n    \"customer_data\"   : {\r\n        \"legal_id\": \"1031160418\",\r\n        \"full_name\": \"Brayan Andres Martinez\",\r\n        \"ledal_id_type\": \"CC\"\r\n    },\r\n    \"payment_method\": {\r\n        \"type\": \"CARD\",\r\n        \"installments\": 1,\r\n        \"token\": \"tok_test_53167_1F43C334DA74D41b240eb9A9F68EbE2d\"     \r\n    }\r\n}",
+                "raw": "{\n    \"acceptance_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NiwicGVybWFsaW5rIjoiaHR0cHM6Ly93b21waS5jb20vd2NtL2Nvbm5lY3QvYzkyYmJlYjMtMzQyMS00OWQwLWI4MWUtNGE4ZTRlNTUyYWY5L1QlQzMlQTlybWlub3MreStjb25kaWNpb25lc19Ob3ZpZW1icmUucGRmP01PRD1BSlBFUkVTIiwiZmlsZV9oYXNoIjoiYmY3MjJhY2QxMWM0YzM0MzE1YzA4NTViMjJiMjhiOTkiLCJqaXQiOiIxNjg1MjI3MzcxLTU3MTE4IiwiZXhwIjoxNjg1MjMwOTcxfQ.kywcB0YYmsnFkjJ2ADpGlo4tEwaTnJtOYBrB8lcCiLg\",\n    \"amount_in_cents\": 1000000,\n    \"currency\": \"COP\",\n    \"customer_email\": \"andres.brayan.m@gmail.com\",\n    \"reference\": \"1031160418-20230427123\",\n    \"customer_data\": {\n        \"legal_id\": \"1031160418\",\n        \"full_name\": \"Brayan Andres Martinez\",\n        \"ledal_id_type\": \"CC\"\n    },\n    \"payment_method\": {\n        \"type\": \"CARD\",\n        \"installments\": 1,\n        \"token\": \"tok_test_53167_1F43C334DA74D41b240eb9A9F68EbE2d\"     \n    }\n}",
                 "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "pub_test_oZ9R968RJWq57U097dZrgNMXBcyQK8hT"
             },
             "tests": []
         },
         {
-            "_id": "19cf1f10-a95a-41e0-8fb5-3dfa9c97e7ec",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "_id": "14b8df04-a373-4144-8b0c-54687f7369c0",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
             "containerId": "",
             "name": "Get Terms and Conditions",
             "url": "https://sandbox.wompi.co/v1/merchants/pub_test_oZ9R968RJWq57U097dZrgNMXBcyQK8hT",
             "method": "GET",
             "sortNum": 70000,
-            "created": "2023-05-27T17:35:55.275Z",
-            "modified": "2023-05-27T17:36:44.095Z",
+            "created": "2023-05-27T20:21:53.387Z",
+            "modified": "2023-05-27T20:21:53.387Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "1774628e-112a-4a1f-8862-8a96dfb5a996",
-            "colId": "7dcbd8af-1f0f-40cb-b33e-f173a765b516",
+            "_id": "ef12d4fc-1024-4a9b-9bc5-6c4402c86ad1",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
             "containerId": "",
             "name": "Consult Transaction",
             "url": "https://sandbox.wompi.co/v1/transactions?reference=1031160418-20230427",
             "method": "GET",
             "sortNum": 80000,
-            "created": "2023-05-27T17:47:12.125Z",
-            "modified": "2023-05-27T17:48:03.117Z",
+            "created": "2023-05-27T20:21:53.388Z",
+            "modified": "2023-05-27T20:21:53.388Z",
             "headers": [],
             "params": [
                 {
@@ -134,6 +185,53 @@
                 "type": "bearer",
                 "bearer": "prv_test_nqJyKKmRpkn8ca4a6Evlc2xMuISTtbKF"
             },
+            "tests": []
+        },
+        {
+            "_id": "ac80b44d-3425-4ebd-a3fc-911e2a765587",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "94935d8e-8a2b-4559-979f-46c01b5faaee",
+            "name": "Create Driver",
+            "url": "http://localhost:3000/driver",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-05-28T07:01:53.982Z",
+            "modified": "2023-05-28T23:33:16.130Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"full_name\": \"Sofía Fernández\",\r\n  \"customer_email\": \"sofia.fernandez10@example.com\",\r\n  \"legal_id\": \"536728491\",\r\n  \"ledal_id_type\": \"CC\",\r\n  \"current_location\": [-75.597830, 6.250202]\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "df8879ec-7e80-46bd-8cae-b7d14b8afe94",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "94935d8e-8a2b-4559-979f-46c01b5faaee",
+            "name": "get Driver by Legal ID",
+            "url": "http://localhost:3000/driver/371829402",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-05-28T07:02:22.132Z",
+            "modified": "2023-05-28T23:42:56.824Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b3bc7719-54f0-4dda-9e04-24726f70e0cf",
+            "colId": "ed7893a4-8467-4cb0-925f-f54ecf50b098",
+            "containerId": "94935d8e-8a2b-4559-979f-46c01b5faaee",
+            "name": "Get all Drivers",
+            "url": "http://localhost:3000/driver",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-05-28T07:02:35.110Z",
+            "modified": "2023-05-28T07:06:44.479Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
