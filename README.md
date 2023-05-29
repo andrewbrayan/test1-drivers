@@ -24,10 +24,11 @@
 
 ## Description
 
-This is a RESTful JSON API built for a small ride-hailing service. It integrates with the Wompi API for monetary transactions. The API supports two types of users: riders and drivers. Riders can create payment methods, request rides, and view their transaction history. Drivers can finish rides, calculate fares, and create transactions. The API is built using [NestJs](https://github.com/nestjs/nest) framework.
+This is a RESTful JSON API built for a small ride-hailing service. It integrates with a payment gateway for monetary transactions. The API supports two types of users: riders and drivers. Riders can create payment methods, request rides, and view their transaction history. Drivers can complete rides, calculate fares, and create transactions. The API is built using the [NestJs](https://github.com/nestjs/nest) framework.
 
 ## Production Deployment
 
+The link provided includes a documentation section and tests for each of the endpoints.
 [https://test1-drivers.herokuapp.com/](https://test1-drivers.herokuapp.com/)
 
 ## Installation
