@@ -82,17 +82,38 @@ export class TripService {
   }
 
   async closeTrip(legal_id: string): Promise<requestResponse> {
+    if (!legal_id) {
+      return {
+        statusCode: 400,
+        status: "Bad Request",
+        message: "Es requerido ingresar como parametro la identificación del conductor",
+        data: null,
+      };
+    }
+
     const trip = await this.tripModel.findOne({ driver_legal_id: legal_id,  payment_reference: '' });
+    if (!trip) {
+      return {
+        statusCode: 400,
+        status: "Bad Request",
+        message: "El viaje solicitado no ha sido encontrado",
+        data: null,
+      };
+    }
+
     const rider = await this.riderModel.findOne({ legal_id: trip.rider_legal_id });
     const amount = this.calculateAmount(trip.route_distance, trip.route_duration)
     const paymentRefence = await this.paymentsService.createPayment(rider, amount);
 
-    return await this.tripModel.updateOne({ _id: trip._id }, { payment_reference: paymentRefence, payment_amount: Math.ceil(amount) }).then<requestResponse>((trip) => {
+    return await this.tripModel.updateOne(
+      { _id: trip._id }, 
+      { payment_reference: paymentRefence, payment_amount: Math.ceil(amount) }
+    ).then<requestResponse>((trip) => {
       return {
         statusCode: 200,
         status: "Created",
         message: "Viaje finalizado",
-        data: trip,
+        data: null,
       };
     })
     .catch<requestResponse>((error) => {
